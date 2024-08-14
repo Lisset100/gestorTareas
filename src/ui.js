@@ -13,9 +13,15 @@ export const renderTasks = () => {
     }
     li.innerHTML = `
       ${task.text}
-      <button class="delete-btn">Eliminar</button>
+      <button class="delete">Eliminar</button>
       <button class="toggle">${task.completed === false ? 'completar' : 'Deshacer'}</button>
     `;
+
+    // Agregar evento para eliminar la tarea
+    li.querySelector('.delete').addEventListener('click', () => {
+      deleteTask(task.id);
+      renderTasks(); // Volver a renderizar la lista
+    });
     taskList.appendChild(li);
   });
 };

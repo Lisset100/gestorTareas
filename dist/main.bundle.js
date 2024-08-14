@@ -11,7 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addTask: () => (/* binding */ addTask),
-/* harmony export */   getTasks: () => (/* binding */ getTasks)
+/* harmony export */   deleteTask: () => (/* binding */ deleteTask),
+/* harmony export */   getTasks: () => (/* binding */ getTasks),
+/* harmony export */   updateTask: () => (/* binding */ updateTask)
 /* harmony export */ });
 //Lista de tareas
 var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -30,6 +32,24 @@ var addTask = function addTask(task) {
 //Función para traer la lista de tareas
 var getTasks = function getTasks() {
   return tasks;
+};
+
+//Función para eliminar una tarea de la lista
+var deleteTask = function deleteTask(id) {
+  tasks = tasks.filter(function (task) {
+    return task.id !== parseInt(id);
+  });
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+//Función para actualizar el estado de una tarea
+var updateTask = function updateTask(id) {
+  tasks = tasks.map(function (task) {
+    if (task.id === parseInt(id)) {
+      task.completed = !task.completed;
+    }
+    return task;
+  });
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
 /***/ }),
@@ -145,6 +165,19 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('task-input').value = '';
     }
   });
+});
+//Agregar el evento para los botones
+document.getElementById('task-list').addEventListener('click', function (e) {
+  if (e.target.classList.contains('delete')) {
+    var taskId = e.target.parentElement.getAttribute('data-id');
+    (0,_task__WEBPACK_IMPORTED_MODULE_0__.deleteTask)(taskId);
+    (0,_ui__WEBPACK_IMPORTED_MODULE_1__.renderTasks)();
+  }
+  if (e.target.classList.contains('toggle')) {
+    var _taskId = e.target.parentElement.getAttribute('data-id');
+    (0,_task__WEBPACK_IMPORTED_MODULE_0__.updateTask)(_taskId);
+    (0,_ui__WEBPACK_IMPORTED_MODULE_1__.renderTasks)();
+  }
 });
 /******/ })()
 ;
