@@ -1,4 +1,5 @@
-import { getTasks } from "./task";
+import { getTasks } from './task';
+
 export const renderTasks = () => {
   const taskList = document.getElementById('task-list');
   taskList.innerHTML = '';
@@ -17,11 +18,6 @@ export const renderTasks = () => {
       <button class="toggle">${task.completed === false ? 'completar' : 'Deshacer'}</button>
     `;
 
-    // Agregar evento para eliminar la tarea
-    li.querySelector('.delete').addEventListener('click', () => {
-      deleteTask(task.id);
-      renderTasks(); // Volver a renderizar la lista
-    });
     taskList.appendChild(li);
   });
 };

@@ -5,6 +5,7 @@ import { renderTasks } from "./ui";
 document.addEventListener('DOMContentLoaded', () => {
   //hacemos visible la lista de tareas
   renderTasks();
+
   //agregamos evento al formulario
   document.getElementById('task-form').addEventListener('submit', (e) => {
     e.preventDefault();
