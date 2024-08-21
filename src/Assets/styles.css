@@ -14,12 +14,12 @@ body {
 }
 
 .delete {
-  position: relative;
+  background-color: rgb(204, 125, 166);
 
 
 }
 
-.toggle {}
+
 
 h1 {
   text-align: center;
