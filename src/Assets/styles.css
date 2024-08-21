@@ -1,7 +1,8 @@
 /*Estilos generales*/
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-image: url('./foto.jpg');
+  background-size: cover;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -12,23 +13,59 @@ body {
   /*vertical*/
 }
 
+.delete {
+  position: relative;
+
+
+}
+
+.toggle {}
+
+h1 {
+  text-align: center;
+  color: #091e6c;
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #fff,
+    0 0 15px #3e7ed7,
+    0 0 20px #3e97d7,
+    0 0 25px #3ec0d7,
+    0 0 30px #3e7ed7,
+    0 0 35px #093b80;
+}
+
 /*Estilos contenedor principal*/
 #app {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
+  width: 40vw;
+  /* 80% del ancho de la ventana */
+  height: 50vh;
+  overflow: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: flex-end;
+  /* Espacio uniforme entre los elementos */
+  text-align: left;
+
+  align-items: center;
+  /* Centra los elementos verticalmente */
+  gap: 20px;
 }
 
 /*Estilos para el formulario*/
 form {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-end;
+  /* Alinea verticalmente los elementos */
+  gap: 10px;
+  /* Espacio entre el input y el botón */
 
 }
 
 /*Estilos para el input*/
 input {
+  flex: 1;
   width: 75%;
   padding: 8px;
   margin-right: 10px;
@@ -46,6 +83,10 @@ button {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  text-align: left;
+
+
+
 
 }
 
@@ -65,6 +106,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /*Estilos para el elemento completado de la lista*/

@@ -12,10 +12,14 @@ export const renderTasks = () => {
     if (task.completed === true) {
       li.classList.add('completed');
     }
+
     li.innerHTML = `
-      ${task.text}
-      <button class="delete">Eliminar</button>
-      <button class="toggle">${task.completed === false ? 'completar' : 'Deshacer'}</button>
+    ${task.text}
+
+   <div class='buttons' data-id="${task.id}">
+      <button class='delete'>Eliminar</button>
+      <button class='toggle'>${task.completed === false ? 'completar' : 'Deshacer'}</button>
+      </div>
     `;
 
     taskList.appendChild(li);
